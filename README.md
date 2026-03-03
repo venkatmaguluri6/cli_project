@@ -159,6 +159,21 @@ The MCP server process failed to start. Check that:
 
 ## Development
 
+### MCP Inspector (Debugging the Server)
+
+The MCP Inspector is a browser-based UI for testing and debugging your MCP server interactively — without running the full chat client.
+
+```bash
+mcp dev mcp_server.py
+```
+
+This launches a local web server and opens the Inspector in your browser, where you can:
+- Browse available **tools**, **resources**, and **prompts**
+- Call tools directly and inspect their inputs/outputs
+- Verify your server is working before connecting it to the chat client
+
+> **Note:** Make sure `pydantic.Field` (not `dataclasses.Field`) is used in `mcp_server.py` for tool parameter descriptions, otherwise `mcp dev` will throw a `TypeError` on startup.
+
 ### Adding New Documents
 
 Edit the `mcp_server.py` file to add new documents to the `docs` dictionary.
