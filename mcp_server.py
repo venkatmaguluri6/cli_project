@@ -1,5 +1,4 @@
-from dataclasses import Field
-
+from pydantic import Field
 from mcp.server.fastmcp import FastMCP
 
 mcp = FastMCP("DocumentMCP", log_level="ERROR")
@@ -18,7 +17,6 @@ docs = {
 @mcp.tool(
     name="read_doc",
     description="Read the contents of a document and return it as a string.",
-    args={"doc_id": "The ID of the document to read."},
 )
 def read_doc(doc_id: str):
     if doc_id not in docs:
